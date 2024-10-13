@@ -7,7 +7,7 @@ type Props = {
 };
 export const TriggerNode = memo((node: Node<Props>) => {
     return <DefaultBase node={node} hasInput={false}>
-        Trigger
+        Start
 
         <Handle type="source" id="next" position={Position.Bottom} />
     </DefaultBase>

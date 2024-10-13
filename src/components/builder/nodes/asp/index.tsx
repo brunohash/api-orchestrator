@@ -7,7 +7,7 @@ type Props = {
 };
 export const AspNode = memo((node: Node<Props>) => {
     return <CustomBase node={node}>
-        Asp
+        Asp - Tókio
 
         <Handle type="source" id="success" position={Position.Right} style={{ background: 'green' }} />
     </CustomBase>

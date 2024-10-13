@@ -19,12 +19,25 @@ import Sidebar from './components/Sidebar';
 import { DnDProvider } from './contexts/DnDContext';
 import { nodeTypes as CustomNodes } from './components/builder/nodes';
 
-import { AnimatedSVGEdge } from './components/builder/nodes/AnimatedSVGEdge';
-
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
 const initialNodes = [
+  {
+    id: 'annotation-1',
+    type: 'annotation',
+    data: {
+      level: 1,
+      label:
+        'Fluxo obrigatório para o workflow dos módulos',
+      arrowStyle: {
+        right: 0,
+        bottom: 0,
+        transform: 'translate(-30px,10px) rotate(-80deg)',
+      },
+    },
+    position: { x: -203, y:  -15 },
+  },
   {
     id: getId(),
     type: 'trigger',
@@ -46,8 +59,8 @@ const initialNodes = [
 ]
 
 const initialEdges = [
-  { id: 'e1-2', type: 'animatedSvg', source: initialNodes[0].id, sourceHandle: 'success', target: initialNodes[1].id, targetHandle: 'success' },
-  { id: 'e2-3', type: 'animatedSvg', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
+  { id: 'e1-2', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
+  { id: 'e2-3', source: initialNodes[2].id, sourceHandle: 'success', target: initialNodes[3].id, targetHandle: 'success' },
 ]
 
 const DnDFlow = () => {
@@ -58,9 +71,9 @@ const DnDFlow = () => {
   const { type } = useDnD();
 
   const nodeTypes = useMemo<NodeTypes>(() => CustomNodes, []);
-  const edgeTypes = useMemo<EdgeTypes>(() => ({ animatedSvg: AnimatedSVGEdge }), []);
+  const edgeTypes = useMemo<EdgeTypes>(() => ({ }), []);
 
-  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge({ ...params, type: 'animatedSvg'}, eds)), [setEdges]);
+  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge(params, eds)), [setEdges]);
   const onDragOver: DragEventHandler<HTMLDivElement> = useCallback(event => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';

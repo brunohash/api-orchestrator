@@ -33,20 +33,9 @@ function Sidebar()
 
   return (
     <aside>
-      <div className="description">Arraste</div>
-      <div className="dndnode trigger" onDragStart={(event) => onDragStart(event, 'trigger')} draggable>
-        Trigger
-      </div>
-      <div className="dndnode authentication" onDragStart={(event) => onDragStart(event, 'authentication')} draggable>
-        Authentication
-      </div>
-      <div className="dndnode transaction" onDragStart={(event) => onDragStart(event, 'transaction')} draggable>
-        Transaction
-      </div> 
+      <div className="description">Arraste e solte para criar sua própria orquestração</div>
 
-      <div className="dndnode asp" onDragStart={(event) => onDragStart(event, 'asp')} draggable>
-        Asp
-      </div> 
+      <h2 className="text-lg pb-3">🗳️  Módulos </h2> 
 
       <div className="dndnode whatsapp" onDragStart={(event) => onDragStart(event, 'whatsapp')} draggable>
         Whatsapp
@@ -55,7 +44,12 @@ function Sidebar()
       <div className="dndnode rating" onDragStart={(event) => onDragStart(event, 'rating')} draggable>
         Ratings
       </div> 
+
+      <h2 className="text-lg pb-3">🗳️  External </h2> 
       
+      <div className="dndnode asp" onDragStart={(event) => onDragStart(event, 'asp')} draggable>
+        Asp Tókio
+      </div> 
 
       <div className="w-100 flex justify-center items-center">
         <button className="teste" onClick={handlerSave}>
