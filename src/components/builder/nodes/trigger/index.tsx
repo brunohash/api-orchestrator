@@ -1,14 +1,14 @@
 import { memo } from "react";
-import { NodeBase } from "../../customized/node";
+import { DefaultBase } from "../../customized/node/default";
 import { Handle, Node, Position } from "reactflow";
 
 type Props = {
     title: string;
 };
 export const TriggerNode = memo((node: Node<Props>) => {
-    return <NodeBase node={node} hasInput={false}>
+    return <DefaultBase node={node} hasInput={false}>
         Trigger
 
         <Handle type="source" id="next" position={Position.Bottom} />
-    </NodeBase>
+    </DefaultBase>
 })

@@ -13,7 +13,6 @@ import {
   EdgeTypes,
   OnConnect,
 } from 'reactflow';
-import 'reactflow/dist/style.css';
 import './index.css';
 import { useDnD } from './hooks/useDnD';
 import Sidebar from './components/Sidebar';
@@ -27,19 +26,19 @@ const initialNodes = [
   {
     id: getId(),
     type: 'trigger',
-    position: { x: 250, y: 5 },
+    position: { x: 0, y: 0 },
     data: { label: 'Trigger node' },
   },
   {
     id: getId(),
     type: 'authentication',
-    position: { x: 100, y: 100 },
+    position: { x: 0, y: 100 },
     data: { label: 'Authentication node' },
   },
   {
     id: getId(),
     type: 'transaction',
-    position: { x: 400, y: 100 },
+    position: { x: 0, y: 200 },
     data: { label: 'Transaction node' },
   },
 ]

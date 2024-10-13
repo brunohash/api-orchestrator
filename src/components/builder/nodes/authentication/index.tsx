@@ -1,14 +1,14 @@
 import { memo } from "react";
-import { NodeBase } from "../../customized/node";
+import { DefaultBase } from "../../customized/node/default";
 import { Handle, Node, Position } from "reactflow";
 
 type Props = {
     title: string;
 };
 export const AuthenticationNode = memo((node: Node<Props>) => {
-    return <NodeBase node={node}>
+    return <DefaultBase node={node}>
         Authentication
 
         <Handle type="source" id="success" position={Position.Bottom} style={{ background: 'green' }} />
-    </NodeBase>
+    </DefaultBase>
 })

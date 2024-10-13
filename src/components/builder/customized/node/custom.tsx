@@ -6,14 +6,14 @@ type Props = {
     children: React.ReactNode;
     hasInput?: boolean; 
 }
-export const NodeBase = memo(({ node, children, hasInput = true }: Props) => {
+export const CustomBase = memo(({ node, children, hasInput = true }: Props) => {
     const { data } = node
 
     return (
         <div
             className="w-[250px] border border-[#000] bg-white rounded-md p-2"
         >
-            { hasInput && <Handle type="target" position={Position.Top} /> }
+            { hasInput && <Handle type="target" position={Position.Left} /> }
             {children}
         </div>
     );
