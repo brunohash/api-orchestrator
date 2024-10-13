@@ -19,6 +19,8 @@ import Sidebar from './components/Sidebar';
 import { DnDProvider } from './contexts/DnDContext';
 import { nodeTypes as CustomNodes } from './components/builder/nodes';
 
+import { AnimatedSVGEdge } from './components/builder/nodes/AnimatedSVGEdge';
+
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
@@ -44,8 +46,8 @@ const initialNodes = [
 ]
 
 const initialEdges = [
-  { id: 'e1-2', source: initialNodes[0].id, sourceHandle: 'success', target: initialNodes[1].id, targetHandle: 'success' },
-  { id: 'e2-3', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
+  { id: 'e1-2', type: 'animatedSvg', source: initialNodes[0].id, sourceHandle: 'success', target: initialNodes[1].id, targetHandle: 'success' },
+  { id: 'e2-3', type: 'animatedSvg', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
 ]
 
 const DnDFlow = () => {
@@ -56,9 +58,9 @@ const DnDFlow = () => {
   const { type } = useDnD();
 
   const nodeTypes = useMemo<NodeTypes>(() => CustomNodes, []);
-  const edgeTypes = useMemo<EdgeTypes>(() => ({ }), []);
+  const edgeTypes = useMemo<EdgeTypes>(() => ({ animatedSvg: AnimatedSVGEdge }), []);
 
-  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge(params, eds)), [setEdges]);
+  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge({ ...params, type: 'animatedSvg'}, eds)), [setEdges]);
   const onDragOver: DragEventHandler<HTMLDivElement> = useCallback(event => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';

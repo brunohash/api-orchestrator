@@ -78,6 +78,7 @@ export const RatingNode = memo((node: Node<Props>) => {
                     <option value="maior">Maior que</option>
                     <option value="menor">Menor que</option>
                     <option value="vazio">Vazio</option>
+                    <option value="igual">Igual</option>
                     <option value="preenchido">Preenchido</option>
                 </select>
                 <input

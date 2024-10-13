@@ -77,6 +77,7 @@ export const WhatsappNode = memo((node: Node<Props>) => {
                     <option value="">Selecionar operador</option>
                     <option value="maior">Maior que</option>
                     <option value="menor">Menor que</option>
+                    <option value="igual">Igual</option>
                 </select>
                 <input
                     type="text"
