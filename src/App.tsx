@@ -54,13 +54,13 @@ const initialNodes = [
     id: getId(),
     type: 'transaction',
     position: { x: 0, y: 200 },
-    data: { label: 'Transaction node' },
+    data: { label: 'Tr  ansaction node' },
   },
 ]
 
 const initialEdges = [
-  { id: 'e1-2', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
-  { id: 'e2-3', source: initialNodes[2].id, sourceHandle: 'success', target: initialNodes[3].id, targetHandle: 'success' },
+  { id: 'e1-2', type: 'smoothstep', source: initialNodes[1].id, sourceHandle: 'success', target: initialNodes[2].id, targetHandle: 'success' },
+  { id: 'e2-3', type: 'smoothstep', source: initialNodes[2].id, sourceHandle: 'success', target: initialNodes[3].id, targetHandle: 'success' },
 ]
 
 const DnDFlow = () => {
@@ -73,7 +73,7 @@ const DnDFlow = () => {
   const nodeTypes = useMemo<NodeTypes>(() => CustomNodes, []);
   const edgeTypes = useMemo<EdgeTypes>(() => ({ }), []);
 
-  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge(params, eds)), [setEdges]);
+  const onConnect: OnConnect = useCallback(params => setEdges(eds => addEdge({...params, type: 'smoothstep'}, eds)), [setEdges]);
   const onDragOver: DragEventHandler<HTMLDivElement> = useCallback(event => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';

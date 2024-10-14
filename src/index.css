@@ -26,7 +26,6 @@ body {
 
 .dndflow aside {
   border-right: 1px solid #eee;
-  padding: 15px 10px;
   font-size: 12px;
   background: #fcfcfc;
 }
@@ -75,8 +74,8 @@ body {
   }
 }
 
-.teste{
-  @apply px-2 py-1 border rounded bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white ring-2 absolute bottom-3 text-xl p-3;
+.button-custom{
+  @apply border w-full absolute bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white text-xl p-3;
 }
 
 .overview * {
