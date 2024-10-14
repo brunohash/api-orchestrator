@@ -36,7 +36,7 @@ const initialNodes = [
         transform: 'translate(-30px,10px) rotate(-80deg)',
       },
     },
-    position: { x: -203, y:  -15 },
+    position: { x: -203, y:  115 },
   },
   {
     id: getId(),
@@ -47,14 +47,14 @@ const initialNodes = [
   {
     id: getId(),
     type: 'authentication',
-    position: { x: 0, y: 100 },
+    position: { x: 0, y: 170 },
     data: { label: 'Authentication node' },
   },
   {
     id: getId(),
     type: 'transaction',
-    position: { x: 0, y: 200 },
-    data: { label: 'Tr  ansaction node' },
+    position: { x: 0, y: 350 },
+    data: { label: 'Transaction node' },
   },
 ]
 

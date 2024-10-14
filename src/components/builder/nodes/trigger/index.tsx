@@ -9,6 +9,6 @@ export const TriggerNode = memo((node: Node<Props>) => {
     return <DefaultBase node={node} hasInput={false}>
         Start
 
-        <Handle type="source" id="next" position={Position.Bottom} />
+        <Handle type="source" id="next" position={Position.Bottom}  style={{ background: 'green' }} />
     </DefaultBase>
 })

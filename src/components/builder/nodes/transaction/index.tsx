@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import { DefaultBase } from "../../customized/node/default";
 import { Handle, Position, Node, useReactFlow } from "reactflow";
+import { cn } from "../../../../libs/utils";
 
 type Condition = {
     id: string; 
@@ -46,11 +47,11 @@ export const TransactionNode = memo((node: Node<Props>) => {
         <DefaultBase node={node}>
             <h2>Transaction</h2>
 
-            <div>
+            <div className={ cn({ "hidden": conditions.length < 1 }) }>
                 <small>Condições:</small>
                 <div className="border rounded p-2">
                     {conditions.map((cond) => (
-                        <div key={cond.id} style={{ margin: '10px 0', position: 'relative' }} className="border rounded text-white bg-blue-300 p-2 text-sm">
+                        <div key={cond.id} style={{ margin: '10px 0', position: 'relative' }} className="border rounded text-white bg-blue-500 p-2 text-sm">
                             {`Se ${cond.field} é ${cond.operator} ${cond.value}`}
                             <Handle
                                 type="source"
@@ -63,7 +64,7 @@ export const TransactionNode = memo((node: Node<Props>) => {
                 </div>
             </div>
 
-            <div className="border rounded bg-orange-300 p-4 mt-2">
+            <div className="border rounded bg-blue-700/5 text-gray border-blue-700/25 p-4 mt-2">
                 <input
                     type="text"
                     placeholder="Campo"
@@ -90,7 +91,7 @@ export const TransactionNode = memo((node: Node<Props>) => {
                     onChange={(e) => setNewCondition({ ...newCondition, value: e.target.value })}
                 />
 
-                <button className="px-2 py-1 rounded bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white disabled:bg-gray-400 text-sm p-3" onClick={addCondition} disabled={!newCondition.field || !newCondition.operator}>Adicionar Condição</button>
+                <button className="px-2 py-1 w-full rounded bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white disabled:bg-gray-400 transition-colors disabled:cursor-not-allowed text-sm p-3" onClick={addCondition} disabled={!newCondition.field || !newCondition.operator}>Adicionar Condição</button>
             </div>
             
             <Handle type="source" id="transactionSuccess" position={Position.Right} style={{ background: 'green' }} />

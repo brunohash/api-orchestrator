@@ -43,7 +43,7 @@
   }
   .react-flow__edge-path,
   .react-flow__connection-path {
-    stroke: rgb(205, 90, 52);
+    stroke: rgb(31, 75, 207);
     stroke-width: 2;
     fill: none;
   }
@@ -148,12 +148,12 @@
     }
   .react-flow__handle-top {
       left: 50%;
-      top: -4px;
+      top: -14px;
       transform: translate(-50%, 0);
     }
   .react-flow__handle-left {
       top: 50%;
-      left: -4px;
+      left: -14px;
       width: 0.5rem;
       height: 1rem;
       transform: translate(0, -50%);
