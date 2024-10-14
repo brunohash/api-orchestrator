@@ -21,8 +21,6 @@ function Sidebar()
     const nodes = getNodes();
     const edges = getEdges();
 
-    console.log(nodes, edges);
-
     setModalOpen(true);
     setModalData({ nodes, edges });
   }

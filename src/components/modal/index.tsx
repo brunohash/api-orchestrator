@@ -37,7 +37,8 @@ export function Modal({ open, setOpen, flow }: Props) {
                   </DialogTitle>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Agora faça o que precisa ser feito.
+                      Nodes representam as posicoes dos módulos e suas configurações.
+                      Edges representam as conexoes entre os nodes.
                     </p>
 
                     <textarea className='w-full h-96 mt-4 p-2 border border-gray-300 rounded-md' readOnly>
