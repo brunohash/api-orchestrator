@@ -5,8 +5,8 @@ import { Handle, Node, Position } from "reactflow";
 type Props = {
     title: string;
 };
-export const AspNode = memo((node: Node<Props>) => {
+export const CustomNode = memo((node: Node<Props>) => {
     return <CustomBase node={node}>
-        Asp - Tókio
+        Custom
     </CustomBase>
 })
